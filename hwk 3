@@ -9,6 +9,7 @@ def cache(func):
         result = func(*args)
         cache_dict[key] = result
         return result
+
     def get_cache():
         return cache_dict
 
