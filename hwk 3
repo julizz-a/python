@@ -1,0 +1,34 @@
+def cache(func):
+    cache_dict = {}
+
+    def wrapper(*args):
+        key = tuple(sorted(args))
+        if key in cache_dict:
+            print(f"{args[0]} + {args[1]} взят из кэша")
+            return cache_dict[key]
+        result = func(*args)
+        cache_dict[key] = result
+        return result
+    def get_cache():
+        return cache_dict
+
+    def print_cache():
+        for key, value in cache_dict.items():
+            print(f"  {key[0]} + {key[1]} = {value}")
+
+    wrapper.get_cache = get_cache
+    wrapper.print_cache = print_cache
+
+    return wrapper
+
+@cache
+def sum(a, b):
+    return a + b
+
+print(sum(5, 3))
+print(sum(5, 3))
+print(sum(3, 5))
+print(sum(2, 4))
+print(sum(4, 2))
+sum.print_cache()
+print(sum.get_cache())
