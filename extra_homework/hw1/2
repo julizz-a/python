@@ -1,0 +1,18 @@
+def sum_of_digits(n):
+    total = 0
+    for digit in str(n):
+        total += int(digit)
+    return total
+
+def count_digits(n):
+    return len(str(n))
+
+N = int(input("Введите число: "))
+
+sum_digits = sum_of_digits(N)
+count_d = count_digits(N)
+difference = sum_digits - count_d
+
+print(f"Сумма чисел: {sum_digits}")
+print(f"Количество цифр в числе: {count_d}")
+print(f"Разность суммы и количества цифр: {difference}")
