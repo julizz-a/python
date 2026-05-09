@@ -1,0 +1,10 @@
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+K = int(input("Сдвиг: "))
+
+K = K % len(numbers)
+
+if K > 0:
+    numbers = numbers[-K:] + numbers[:-K]
+
+print(f"Сдвинутый список: {numbers}")
