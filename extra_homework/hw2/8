@@ -1,0 +1,27 @@
+def quicksort(arr, left, right):
+    if left < right:
+        pivot_index = partition(arr, left, right)
+        quicksort(arr, left, pivot_index - 1)
+        quicksort(arr, pivot_index + 1, right)
+
+
+def partition(arr, left, right):
+    pivot = arr[right]
+    i = left - 1
+
+    for j in range(left, right):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i + 1], arr[right] = arr[right], arr[i + 1]
+    return i + 1
+
+
+numbers = list(map(int, input("Введите числа через пробел: ").split()))
+
+print(f"Изначальный список: {numbers}")
+
+quicksort(numbers, 0, len(numbers) - 1)
+
+print(f"Отсортированный список: {numbers}")
