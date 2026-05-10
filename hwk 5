@@ -33,9 +33,8 @@ def random_exception() -> float:
     return d
 
 
-if __name__ == "__main__":
-    for _ in range(100):
-        try:
-            print("result:", random_exception())
-        except (ValueError, OSError):
-            print("Не удалось после 5 попыток")
+for _ in range(100):
+    try:
+        print("result:", random_exception())
+    except (ValueError, OSError):
+        print("Не удалось после 5 попыток")
