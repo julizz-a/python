@@ -1,0 +1,26 @@
+n = int(input("Кол-во чисел: "))
+numbers = []
+
+for i in range(n):
+    num = int(input(f"Число: "))
+    numbers.append(num)
+
+print(f"\nПоследовательность: {numbers}")
+
+for i in range(n):
+    is_palindrome = True
+    left = i
+    right = n - 1
+
+    while left < right:
+        if numbers[left] != numbers[right]:
+            is_palindrome = False
+            break
+        left += 1
+        right -= 1
+
+    if is_palindrome:
+        to_add = numbers[:i][::-1]
+        print(f"Нужно приписать чисел: {len(to_add)}")
+        print(f"Сами числа: {to_add}")
+        break
