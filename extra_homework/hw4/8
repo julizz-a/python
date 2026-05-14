@@ -1,0 +1,17 @@
+message = input("Введите сообщение: ")
+shift = int(input("Введите сдвиг: "))
+lower_alphabet = 'абвгдежзийклмнопрстуфхцчшщъыьэюя'
+upper_alphabet = 'АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
+encrypted = ''
+for char in message:
+    if char in lower_alphabet:
+        old_index = lower_alphabet.index(char)
+        new_index = (old_index + shift) % len(lower_alphabet)
+        encrypted += lower_alphabet[new_index]
+    elif char in upper_alphabet:
+        old_index = upper_alphabet.index(char)
+        new_index = (old_index + shift) % len(upper_alphabet)
+        encrypted += upper_alphabet[new_index]
+    else:
+        encrypted += char
+print(f"Зашифрованное сообщение: {encrypted}")
