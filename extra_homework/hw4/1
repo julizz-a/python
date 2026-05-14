@@ -1,0 +1,8 @@
+text = input("Введите текст: ")
+vowels = "аеёиоуыэюя"
+vowels_list = []
+for char in text.lower():
+    if char in vowels:
+        vowels_list.append(char)
+print(f"Список гласных букв: {vowels_list}")
+print(f"Длина списка: {len(vowels_list)}")
