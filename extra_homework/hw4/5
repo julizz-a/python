@@ -1,0 +1,6 @@
+text = input("Введите строку: ")
+first_h = text.find('h')
+last_h = text.rfind('h')
+middle = text[first_h + 1:last_h]
+reversed_middle = middle[::-1]
+print(f"Развёрнутая последовательность между первым и последним h: {reversed_middle}")
